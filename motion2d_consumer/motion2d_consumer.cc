@@ -13,3 +13,8 @@ void motion2d_consumer_PI_sample(const asn1SccBase_commands_Motion2D *IN_sample)
     /* Write your code here! */
 }
 
+void motion2d_consumer_PI_close()
+{
+	
+}
+

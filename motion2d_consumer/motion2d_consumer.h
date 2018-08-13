@@ -15,6 +15,8 @@ void motion2d_consumer_startup();
 
 void motion2d_consumer_PI_sample(const asn1SccBase_commands_Motion2D *);
 
+void motion2d_consumer_PI_close();
+
 #ifdef __cplusplus
 }
 #endif

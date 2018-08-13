@@ -18,3 +18,9 @@ void double_consumer_PI_sample(const asn1SccT_Double *IN_sample)
     csv << *IN_sample << "\n";
 }
 
+void double_consumer_PI_close()
+{
+	csv.close();
+}
+
+

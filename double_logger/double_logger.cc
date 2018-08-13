@@ -1,19 +1,20 @@
 /* User code: This file will not be overwritten by TASTE. */
 
-#include "rbs_consumer.h"
+#include "double_logger.h"
 
-void rbs_consumer_startup()
+void double_logger_startup()
 {
     /* Write your initialization code here,
        but do not make any call to a required interface. */
 }
 
-void rbs_consumer_PI_sample(const asn1SccBase_samples_RigidBodyState *IN_sample)
+void double_logger_PI_sample(const asn1SccT_Double *IN_sample)
 {
     /* Write your code here! */
 }
 
-void rbs_consumer_PI_close()
+void double_logger_PI_shutdown()
 {
-	
+    /* Write your code here! */
 }
+

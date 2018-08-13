@@ -15,6 +15,8 @@ void double_consumer_startup();
 
 void double_consumer_PI_sample(const asn1SccT_Double *);
 
+void double_consumer_PI_close();
+
 #ifdef __cplusplus
 }
 #endif

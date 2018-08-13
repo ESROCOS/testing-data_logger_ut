@@ -2,8 +2,8 @@
 
 /* Declaration of the functions that have to be provided by the user */
 
-#ifndef __USER_CODE_H_rbs_consumer__
-#define __USER_CODE_H_rbs_consumer__
+#ifndef __USER_CODE_H_rbs_logger__
+#define __USER_CODE_H_rbs_logger__
 
 #include "C_ASN1_Types.h"
 
@@ -11,11 +11,11 @@
 extern "C" {
 #endif
 
-void rbs_consumer_startup();
+void rbs_logger_startup();
 
-void rbs_consumer_PI_sample(const asn1SccBase_samples_RigidBodyState *);
+void rbs_logger_PI_sample(const asn1SccBase_samples_RigidBodyState *);
 
-void rbs_consumer_PI_close();
+void rbs_logger_PI_shutdown();
 
 #ifdef __cplusplus
 }

@@ -34,6 +34,7 @@ WITH interfaceview::IV::motion_command2d_logger;
 WITH interfaceview::IV::rbs_logger;
 WITH interfaceview::IV::double_logger;
 WITH interfaceview::IV::DoubleDispatcher;
+WITH interfaceview::IV::signal_handler;
 WITH ocarina_processors_x86;
 WITH deploymentview::DV::Node1;
 WITH Taste;
@@ -81,6 +82,9 @@ SUBCOMPONENTS
   IV_DoubleDispatcher : SYSTEM interfaceview::IV::DoubleDispatcher::DoubleDispatcher.others {
     Taste::FunctionName => "DoubleDispatcher";
   };
+  IV_signal_handler : SYSTEM interfaceview::IV::signal_handler::signal_handler.others {
+    Taste::FunctionName => "signal_handler";
+  };
   ut_log_record : PROCESS deploymentview::DV::Node1::ut_log_record.others {
     Taste::coordinates => "108275 94856 159343 129015";
     Deployment::Port_Number => 0;
@@ -101,6 +105,7 @@ PROPERTIES
   Taste::APLC_Binding => (reference (ut_log_record)) APPLIES TO IV_rbs_logger;
   Taste::APLC_Binding => (reference (ut_log_record)) APPLIES TO IV_double_logger;
   Taste::APLC_Binding => (reference (ut_log_record)) APPLIES TO IV_DoubleDispatcher;
+  Taste::APLC_Binding => (reference (ut_log_record)) APPLIES TO IV_signal_handler;
   Actual_Processor_Binding => (reference (x86_linux)) APPLIES TO ut_log_record;
 END Node1.others;
 
