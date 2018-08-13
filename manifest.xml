@@ -1,0 +1,1 @@
+<package><depend package="tools/data_logger_components" /><depend package="types/base" /><depend package="tools/dispatchers" /></package>

@@ -1,0 +1,6 @@
+ASNACN_DIR: dataview/
+PROJECT_NAME: data_logger_ut
+deps:
+- tools/data_logger_components: ''
+- types/base: ''
+- tools/dispatchers: ''

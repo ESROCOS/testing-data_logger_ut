@@ -1,0 +1,760 @@
+---------------------------------------------------
+-- AADL2.1
+-- TASTE type interfaceview
+-- 
+-- generated code: do not edit
+---------------------------------------------------
+
+PACKAGE interfaceview::IV::double_producer
+PUBLIC
+
+WITH interfaceview::IV::DoubleDispatcher;
+WITH Taste;
+WITH DataView;
+WITH TASTE_IV_Properties;
+SUBPROGRAM PI_trigger
+PROPERTIES
+  Taste::Associated_Queue_Size => 1;
+END PI_trigger;
+
+SUBPROGRAM IMPLEMENTATION PI_trigger.others
+PROPERTIES
+  Compute_Execution_Time => 0 ms .. 0 ms;
+END PI_trigger.others;
+
+SUBPROGRAM RI_dispatch
+FEATURES
+  sample : IN PARAMETER DataView::T_Double {
+    Taste::encoding => NATIVE;
+  };
+END RI_dispatch;
+
+SUBPROGRAM IMPLEMENTATION RI_dispatch.others
+END RI_dispatch.others;
+
+SYSTEM double_producer
+FEATURES
+  PI_trigger : PROVIDES SUBPROGRAM ACCESS interfaceview::IV::double_producer::PI_trigger.others {
+    Taste::coordinates => "87346 28531";
+    Taste::RCMoperationKind => cyclic;
+    Taste::RCMperiod => 10 ms;
+    Taste::Deadline => 0 ms;
+    Taste::InterfaceName => "trigger";
+  };
+  RI_dispatch : REQUIRES SUBPROGRAM ACCESS interfaceview::IV::DoubleDispatcher::PI_dispatch.others {
+    Taste::coordinates => "112970 31859";
+    Taste::RCMoperationKind => any;
+    Taste::InterfaceName => "dispatch";
+    Taste::labelInheritance => "true";
+  };
+PROPERTIES
+  Source_Language => (CPP);
+  Taste::Active_Interfaces => any;
+END double_producer;
+
+SYSTEM IMPLEMENTATION double_producer.others
+END double_producer.others;
+
+END interfaceview::IV::double_producer;
+
+PACKAGE interfaceview::IV::RigidBodyStateDispatcher
+PUBLIC
+
+WITH interfaceview::IV::rbs_consumer;
+WITH interfaceview::IV::rbs_logger;
+WITH Taste;
+WITH DataView;
+WITH TASTE_IV_Properties;
+SUBPROGRAM PI_dispatch
+FEATURES
+  sample : IN PARAMETER DataView::Base_samples_RigidBodyState {
+    Taste::encoding => NATIVE;
+  };
+PROPERTIES
+  Taste::Associated_Queue_Size => 1;
+END PI_dispatch;
+
+SUBPROGRAM IMPLEMENTATION PI_dispatch.others
+PROPERTIES
+  Compute_Execution_Time => 0 ms .. 0 ms;
+END PI_dispatch.others;
+
+SUBPROGRAM RI_sample
+FEATURES
+  sample : IN PARAMETER DataView::Base_samples_RigidBodyState {
+    Taste::encoding => NATIVE;
+  };
+END RI_sample;
+
+SUBPROGRAM IMPLEMENTATION RI_sample.others
+END RI_sample.others;
+
+SUBPROGRAM RI_sample1
+FEATURES
+  sample : IN PARAMETER DataView::Base_samples_RigidBodyState {
+    Taste::encoding => NATIVE;
+  };
+END RI_sample1;
+
+SUBPROGRAM IMPLEMENTATION RI_sample1.others
+END RI_sample1.others;
+
+SYSTEM RigidBodyStateDispatcher
+FEATURES
+  PI_dispatch : PROVIDES SUBPROGRAM ACCESS interfaceview::IV::RigidBodyStateDispatcher::PI_dispatch.others {
+    Taste::coordinates => "132575 89934";
+    Taste::RCMoperationKind => sporadic;
+    Taste::RCMperiod => 0 ms;
+    Taste::Deadline => 0 ms;
+    Taste::InterfaceName => "dispatch";
+  };
+  RI_sample : REQUIRES SUBPROGRAM ACCESS interfaceview::IV::rbs_consumer::PI_sample.others {
+    Taste::coordinates => "162247 94254";
+    Taste::RCMoperationKind => any;
+    Taste::InterfaceName => "sample";
+    Taste::labelInheritance => "false";
+  };
+  RI_sample1 : REQUIRES SUBPROGRAM ACCESS interfaceview::IV::rbs_logger::PI_sample.others {
+    Taste::coordinates => "162247 99733";
+    Taste::RCMoperationKind => any;
+    Taste::InterfaceName => "sample1";
+    Taste::labelInheritance => "false";
+  };
+PROPERTIES
+  Source_Language => (C);
+  Taste::Active_Interfaces => any;
+  Source_Text => ("/home/taste/esrocos_workspace/install/share/taste_components/dispatchers/rigidbodystatedispatcher.zip");
+END RigidBodyStateDispatcher;
+
+SYSTEM IMPLEMENTATION RigidBodyStateDispatcher.others
+END RigidBodyStateDispatcher.others;
+
+END interfaceview::IV::RigidBodyStateDispatcher;
+
+PACKAGE interfaceview::IV::rbs_producer
+PUBLIC
+
+WITH interfaceview::IV::RigidBodyStateDispatcher;
+WITH Taste;
+WITH DataView;
+WITH TASTE_IV_Properties;
+SUBPROGRAM PI_trigger
+PROPERTIES
+  Taste::Associated_Queue_Size => 1;
+END PI_trigger;
+
+SUBPROGRAM IMPLEMENTATION PI_trigger.others
+PROPERTIES
+  Compute_Execution_Time => 0 ms .. 0 ms;
+END PI_trigger.others;
+
+SUBPROGRAM RI_dispatch
+FEATURES
+  sample : IN PARAMETER DataView::Base_samples_RigidBodyState {
+    Taste::encoding => NATIVE;
+  };
+END RI_dispatch;
+
+SUBPROGRAM IMPLEMENTATION RI_dispatch.others
+END RI_dispatch.others;
+
+SYSTEM rbs_producer
+FEATURES
+  PI_trigger : PROVIDES SUBPROGRAM ACCESS interfaceview::IV::rbs_producer::PI_trigger.others {
+    Taste::coordinates => "84163 81671";
+    Taste::RCMoperationKind => cyclic;
+    Taste::RCMperiod => 100 ms;
+    Taste::Deadline => 0 ms;
+    Taste::InterfaceName => "trigger";
+  };
+  RI_dispatch : REQUIRES SUBPROGRAM ACCESS interfaceview::IV::RigidBodyStateDispatcher::PI_dispatch.others {
+    Taste::coordinates => "113114 84999";
+    Taste::RCMoperationKind => any;
+    Taste::InterfaceName => "dispatch";
+    Taste::labelInheritance => "true";
+  };
+PROPERTIES
+  Source_Language => (CPP);
+  Taste::Active_Interfaces => any;
+END rbs_producer;
+
+SYSTEM IMPLEMENTATION rbs_producer.others
+END rbs_producer.others;
+
+END interfaceview::IV::rbs_producer;
+
+PACKAGE interfaceview::IV::motion2d_producer
+PUBLIC
+
+WITH interfaceview::IV::MotionCommandDispatcher;
+WITH Taste;
+WITH DataView;
+WITH TASTE_IV_Properties;
+SUBPROGRAM PI_trigger
+PROPERTIES
+  Taste::Associated_Queue_Size => 1;
+END PI_trigger;
+
+SUBPROGRAM IMPLEMENTATION PI_trigger.others
+PROPERTIES
+  Compute_Execution_Time => 0 ms .. 0 ms;
+END PI_trigger.others;
+
+SUBPROGRAM RI_dispatch_motion_command
+FEATURES
+  sample : IN PARAMETER DataView::Base_commands_Motion2D {
+    Taste::encoding => NATIVE;
+  };
+END RI_dispatch_motion_command;
+
+SUBPROGRAM IMPLEMENTATION RI_dispatch_motion_command.others
+END RI_dispatch_motion_command.others;
+
+SYSTEM motion2d_producer
+FEATURES
+  PI_trigger : PROVIDES SUBPROGRAM ACCESS interfaceview::IV::motion2d_producer::PI_trigger.others {
+    Taste::coordinates => "85060 138373";
+    Taste::RCMoperationKind => cyclic;
+    Taste::RCMperiod => 100 ms;
+    Taste::Deadline => 0 ms;
+    Taste::InterfaceName => "trigger";
+  };
+  RI_dispatch_motion_command : REQUIRES SUBPROGRAM ACCESS interfaceview::IV::MotionCommandDispatcher::PI_dispatch_motion_command.others {
+    Taste::coordinates => "112923 143365";
+    Taste::RCMoperationKind => any;
+    Taste::InterfaceName => "dispatch_motion_command";
+    Taste::labelInheritance => "true";
+  };
+PROPERTIES
+  Source_Language => (CPP);
+  Taste::Active_Interfaces => any;
+END motion2d_producer;
+
+SYSTEM IMPLEMENTATION motion2d_producer.others
+END motion2d_producer.others;
+
+END interfaceview::IV::motion2d_producer;
+
+PACKAGE interfaceview::IV::MotionCommandDispatcher
+PUBLIC
+
+WITH interfaceview::IV::motion2d_consumer;
+WITH interfaceview::IV::motion_command2d_logger;
+WITH Taste;
+WITH DataView;
+WITH TASTE_IV_Properties;
+SUBPROGRAM PI_dispatch_motion_command
+FEATURES
+  sample : IN PARAMETER DataView::Base_commands_Motion2D {
+    Taste::encoding => NATIVE;
+  };
+PROPERTIES
+  Taste::Associated_Queue_Size => 1;
+END PI_dispatch_motion_command;
+
+SUBPROGRAM IMPLEMENTATION PI_dispatch_motion_command.others
+PROPERTIES
+  Compute_Execution_Time => 0 ms .. 0 ms;
+END PI_dispatch_motion_command.others;
+
+SUBPROGRAM RI_sample
+FEATURES
+  sample : IN PARAMETER DataView::Base_commands_Motion2D {
+    Taste::encoding => NATIVE;
+  };
+END RI_sample;
+
+SUBPROGRAM IMPLEMENTATION RI_sample.others
+END RI_sample.others;
+
+SUBPROGRAM RI_sample1
+FEATURES
+  sample : IN PARAMETER DataView::Base_commands_Motion2D {
+    Taste::encoding => NATIVE;
+  };
+END RI_sample1;
+
+SUBPROGRAM IMPLEMENTATION RI_sample1.others
+END RI_sample1.others;
+
+SYSTEM MotionCommandDispatcher
+FEATURES
+  PI_dispatch_motion_command : PROVIDES SUBPROGRAM ACCESS interfaceview::IV::MotionCommandDispatcher::PI_dispatch_motion_command.others {
+    Taste::coordinates => "130681 147919";
+    Taste::RCMoperationKind => sporadic;
+    Taste::RCMperiod => 0 ms;
+    Taste::Deadline => 0 ms;
+    Taste::InterfaceName => "dispatch_motion_command";
+  };
+  RI_sample : REQUIRES SUBPROGRAM ACCESS interfaceview::IV::motion2d_consumer::PI_sample.others {
+    Taste::coordinates => "158480 152239";
+    Taste::RCMoperationKind => any;
+    Taste::InterfaceName => "sample";
+    Taste::labelInheritance => "false";
+  };
+  RI_sample1 : REQUIRES SUBPROGRAM ACCESS interfaceview::IV::motion_command2d_logger::PI_sample.others {
+    Taste::coordinates => "158480 156559";
+    Taste::RCMoperationKind => any;
+    Taste::InterfaceName => "sample1";
+    Taste::labelInheritance => "false";
+  };
+PROPERTIES
+  Source_Language => (C);
+  Taste::Active_Interfaces => any;
+  Source_Text => ("/home/taste/esrocos_workspace/install/share/taste_components/dispatchers/motioncommanddispatcher.zip");
+END MotionCommandDispatcher;
+
+SYSTEM IMPLEMENTATION MotionCommandDispatcher.others
+END MotionCommandDispatcher.others;
+
+END interfaceview::IV::MotionCommandDispatcher;
+
+PACKAGE interfaceview::IV::double_consumer
+PUBLIC
+
+WITH Taste;
+WITH DataView;
+WITH TASTE_IV_Properties;
+SUBPROGRAM PI_sample
+FEATURES
+  sample : IN PARAMETER DataView::T_Double {
+    Taste::encoding => NATIVE;
+  };
+PROPERTIES
+  Taste::Associated_Queue_Size => 1;
+END PI_sample;
+
+SUBPROGRAM IMPLEMENTATION PI_sample.others
+PROPERTIES
+  Compute_Execution_Time => 0 ms .. 0 ms;
+END PI_sample.others;
+
+SUBPROGRAM PI_close
+END PI_close;
+
+SUBPROGRAM IMPLEMENTATION PI_close.others
+PROPERTIES
+  Compute_Execution_Time => 0 ms .. 0 ms;
+END PI_close.others;
+
+SYSTEM double_consumer
+FEATURES
+  PI_sample : PROVIDES SUBPROGRAM ACCESS interfaceview::IV::double_consumer::PI_sample.others {
+    Taste::coordinates => "185085 31869";
+    Taste::RCMoperationKind => sporadic;
+    Taste::RCMperiod => 0 ms;
+    Taste::Deadline => 0 ms;
+    Taste::InterfaceName => "sample";
+  };
+  PI_close : PROVIDES SUBPROGRAM ACCESS interfaceview::IV::double_consumer::PI_close.others {
+    Taste::coordinates => "185085 41311";
+    Taste::RCMoperationKind => sporadic;
+    Taste::InterfaceName => "close";
+  };
+PROPERTIES
+  Source_Language => (CPP);
+  Taste::Active_Interfaces => any;
+END double_consumer;
+
+SYSTEM IMPLEMENTATION double_consumer.others
+END double_consumer.others;
+
+END interfaceview::IV::double_consumer;
+
+PACKAGE interfaceview::IV::rbs_consumer
+PUBLIC
+
+WITH Taste;
+WITH DataView;
+WITH TASTE_IV_Properties;
+SUBPROGRAM PI_sample
+FEATURES
+  sample : IN PARAMETER DataView::Base_samples_RigidBodyState {
+    Taste::encoding => NATIVE;
+  };
+PROPERTIES
+  Taste::Associated_Queue_Size => 1;
+END PI_sample;
+
+SUBPROGRAM IMPLEMENTATION PI_sample.others
+PROPERTIES
+  Compute_Execution_Time => 0 ms .. 0 ms;
+END PI_sample.others;
+
+SUBPROGRAM PI_close
+END PI_close;
+
+SUBPROGRAM IMPLEMENTATION PI_close.others
+PROPERTIES
+  Compute_Execution_Time => 0 ms .. 0 ms;
+END PI_close.others;
+
+SYSTEM rbs_consumer
+FEATURES
+  PI_sample : PROVIDES SUBPROGRAM ACCESS interfaceview::IV::rbs_consumer::PI_sample.others {
+    Taste::coordinates => "184577 78096";
+    Taste::RCMoperationKind => sporadic;
+    Taste::RCMperiod => 0 ms;
+    Taste::Deadline => 0 ms;
+    Taste::InterfaceName => "sample";
+  };
+  PI_close : PROVIDES SUBPROGRAM ACCESS interfaceview::IV::rbs_consumer::PI_close.others {
+    Taste::coordinates => "184577 89592";
+    Taste::RCMoperationKind => sporadic;
+    Taste::InterfaceName => "close";
+  };
+PROPERTIES
+  Source_Language => (CPP);
+  Taste::Active_Interfaces => any;
+END rbs_consumer;
+
+SYSTEM IMPLEMENTATION rbs_consumer.others
+END rbs_consumer.others;
+
+END interfaceview::IV::rbs_consumer;
+
+PACKAGE interfaceview::IV::motion2d_consumer
+PUBLIC
+
+WITH Taste;
+WITH DataView;
+WITH TASTE_IV_Properties;
+SUBPROGRAM PI_sample
+FEATURES
+  sample : IN PARAMETER DataView::Base_commands_Motion2D {
+    Taste::encoding => NATIVE;
+  };
+PROPERTIES
+  Taste::Associated_Queue_Size => 1;
+END PI_sample;
+
+SUBPROGRAM IMPLEMENTATION PI_sample.others
+PROPERTIES
+  Compute_Execution_Time => 0 ms .. 0 ms;
+END PI_sample.others;
+
+SUBPROGRAM PI_close
+END PI_close;
+
+SUBPROGRAM IMPLEMENTATION PI_close.others
+PROPERTIES
+  Compute_Execution_Time => 0 ms .. 0 ms;
+END PI_close.others;
+
+SYSTEM motion2d_consumer
+FEATURES
+  PI_sample : PROVIDES SUBPROGRAM ACCESS interfaceview::IV::motion2d_consumer::PI_sample.others {
+    Taste::coordinates => "182262 134157";
+    Taste::RCMoperationKind => sporadic;
+    Taste::RCMperiod => 0 ms;
+    Taste::Deadline => 0 ms;
+    Taste::InterfaceName => "sample";
+  };
+  PI_close : PROVIDES SUBPROGRAM ACCESS interfaceview::IV::motion2d_consumer::PI_close.others {
+    Taste::coordinates => "182262 143804";
+    Taste::RCMoperationKind => unprotected;
+    Taste::InterfaceName => "close";
+  };
+PROPERTIES
+  Source_Language => (CPP);
+  Taste::Active_Interfaces => any;
+END motion2d_consumer;
+
+SYSTEM IMPLEMENTATION motion2d_consumer.others
+END motion2d_consumer.others;
+
+END interfaceview::IV::motion2d_consumer;
+
+PACKAGE interfaceview::IV::motion_command2d_logger
+PUBLIC
+
+WITH Taste;
+WITH DataView;
+WITH TASTE_IV_Properties;
+SUBPROGRAM PI_sample
+FEATURES
+  sample : IN PARAMETER DataView::Base_commands_Motion2D {
+    Taste::encoding => NATIVE;
+  };
+PROPERTIES
+  Taste::Associated_Queue_Size => 1;
+END PI_sample;
+
+SUBPROGRAM IMPLEMENTATION PI_sample.others
+PROPERTIES
+  Compute_Execution_Time => 0 ms .. 0 ms;
+END PI_sample.others;
+
+SYSTEM motion_command2d_logger
+FEATURES
+  PI_sample : PROVIDES SUBPROGRAM ACCESS interfaceview::IV::motion_command2d_logger::PI_sample.others {
+    Taste::coordinates => "182851 158927";
+    Taste::RCMoperationKind => sporadic;
+    Taste::RCMperiod => 0 ms;
+    Taste::Deadline => 0 ms;
+    Taste::InterfaceName => "sample";
+  };
+PROPERTIES
+  Source_Language => (CPP);
+  Taste::Active_Interfaces => any;
+  Source_Text => ("/home/taste/esrocos_workspace/install/share/taste_components/data_loggers/motion_command2d_logger.zip");
+END motion_command2d_logger;
+
+SYSTEM IMPLEMENTATION motion_command2d_logger.others
+END motion_command2d_logger.others;
+
+END interfaceview::IV::motion_command2d_logger;
+
+PACKAGE interfaceview::IV::rbs_logger
+PUBLIC
+
+WITH Taste;
+WITH DataView;
+WITH TASTE_IV_Properties;
+SUBPROGRAM PI_sample
+FEATURES
+  sample : IN PARAMETER DataView::Base_samples_RigidBodyState {
+    Taste::encoding => NATIVE;
+  };
+PROPERTIES
+  Taste::Associated_Queue_Size => 1;
+END PI_sample;
+
+SUBPROGRAM IMPLEMENTATION PI_sample.others
+PROPERTIES
+  Compute_Execution_Time => 0 ms .. 0 ms;
+END PI_sample.others;
+
+SYSTEM rbs_logger
+FEATURES
+  PI_sample : PROVIDES SUBPROGRAM ACCESS interfaceview::IV::rbs_logger::PI_sample.others {
+    Taste::coordinates => "182799 101232";
+    Taste::RCMoperationKind => sporadic;
+    Taste::RCMperiod => 0 ms;
+    Taste::Deadline => 0 ms;
+    Taste::InterfaceName => "sample";
+  };
+PROPERTIES
+  Source_Language => (CPP);
+  Taste::Active_Interfaces => any;
+  Source_Text => ("/home/taste/esrocos_workspace/install/share/taste_components/data_loggers/rbs_logger.zip");
+END rbs_logger;
+
+SYSTEM IMPLEMENTATION rbs_logger.others
+END rbs_logger.others;
+
+END interfaceview::IV::rbs_logger;
+
+PACKAGE interfaceview::IV::double_logger
+PUBLIC
+
+WITH Taste;
+WITH DataView;
+WITH TASTE_IV_Properties;
+SUBPROGRAM PI_sample
+FEATURES
+  sample : IN PARAMETER DataView::T_Double {
+    Taste::encoding => NATIVE;
+  };
+PROPERTIES
+  Taste::Associated_Queue_Size => 1;
+END PI_sample;
+
+SUBPROGRAM IMPLEMENTATION PI_sample.others
+PROPERTIES
+  Compute_Execution_Time => 0 ms .. 0 ms;
+END PI_sample.others;
+
+SYSTEM double_logger
+FEATURES
+  PI_sample : PROVIDES SUBPROGRAM ACCESS interfaceview::IV::double_logger::PI_sample.others {
+    Taste::coordinates => "185118 54851";
+    Taste::RCMoperationKind => sporadic;
+    Taste::RCMperiod => 0 ms;
+    Taste::Deadline => 0 ms;
+    Taste::InterfaceName => "sample";
+  };
+PROPERTIES
+  Source_Language => (CPP);
+  Taste::Active_Interfaces => any;
+  Source_Text => ("/home/taste/esrocos_workspace/install/share/taste_components/data_loggers/double_logger.zip");
+END double_logger;
+
+SYSTEM IMPLEMENTATION double_logger.others
+END double_logger.others;
+
+END interfaceview::IV::double_logger;
+
+PACKAGE interfaceview::IV::DoubleDispatcher
+PUBLIC
+
+WITH interfaceview::IV::double_consumer;
+WITH interfaceview::IV::double_logger;
+WITH Taste;
+WITH DataView;
+WITH TASTE_IV_Properties;
+SUBPROGRAM PI_dispatch
+FEATURES
+  sample : IN PARAMETER DataView::T_Double {
+    Taste::encoding => NATIVE;
+  };
+PROPERTIES
+  Taste::Associated_Queue_Size => 1;
+END PI_dispatch;
+
+SUBPROGRAM IMPLEMENTATION PI_dispatch.others
+PROPERTIES
+  Compute_Execution_Time => 0 ms .. 0 ms;
+END PI_dispatch.others;
+
+SUBPROGRAM RI_sample
+FEATURES
+  sample : IN PARAMETER DataView::T_Double {
+    Taste::encoding => NATIVE;
+  };
+END RI_sample;
+
+SUBPROGRAM IMPLEMENTATION RI_sample.others
+END RI_sample.others;
+
+SUBPROGRAM RI_sample2
+FEATURES
+  sample : IN PARAMETER DataView::T_Double {
+    Taste::encoding => NATIVE;
+  };
+END RI_sample2;
+
+SUBPROGRAM IMPLEMENTATION RI_sample2.others
+END RI_sample2.others;
+
+SYSTEM DoubleDispatcher
+FEATURES
+  PI_dispatch : PROVIDES SUBPROGRAM ACCESS interfaceview::IV::DoubleDispatcher::PI_dispatch.others {
+    Taste::coordinates => "132552 32818";
+    Taste::RCMoperationKind => sporadic;
+    Taste::RCMperiod => 0 ms;
+    Taste::Deadline => 0 ms;
+    Taste::InterfaceName => "dispatch";
+  };
+  RI_sample : REQUIRES SUBPROGRAM ACCESS interfaceview::IV::double_consumer::PI_sample.others {
+    Taste::coordinates => "167269 32818";
+    Taste::RCMoperationKind => any;
+    Taste::InterfaceName => "sample";
+    Taste::labelInheritance => "true";
+  };
+  RI_sample2 : REQUIRES SUBPROGRAM ACCESS interfaceview::IV::double_logger::PI_sample.others {
+    Taste::coordinates => "167269 44413";
+    Taste::RCMoperationKind => any;
+    Taste::InterfaceName => "sample2";
+    Taste::labelInheritance => "false";
+  };
+PROPERTIES
+  Source_Language => (CPP);
+  Taste::Active_Interfaces => any;
+  Source_Text => ("/home/taste/esrocos_workspace/install/share/taste_components/dispatchers/doubledispatcher.zip");
+END DoubleDispatcher;
+
+SYSTEM IMPLEMENTATION DoubleDispatcher.others
+END DoubleDispatcher.others;
+
+END interfaceview::IV::DoubleDispatcher;
+
+PACKAGE interfaceview::IV
+PUBLIC
+
+WITH interfaceview::IV::double_producer;
+WITH interfaceview::IV::RigidBodyStateDispatcher;
+WITH interfaceview::IV::rbs_producer;
+WITH interfaceview::IV::motion2d_producer;
+WITH interfaceview::IV::MotionCommandDispatcher;
+WITH interfaceview::IV::double_consumer;
+WITH interfaceview::IV::rbs_consumer;
+WITH interfaceview::IV::motion2d_consumer;
+WITH interfaceview::IV::motion_command2d_logger;
+WITH interfaceview::IV::rbs_logger;
+WITH interfaceview::IV::double_logger;
+WITH interfaceview::IV::DoubleDispatcher;
+WITH Taste;
+WITH DataView;
+WITH TASTE_IV_Properties;
+SYSTEM interfaceview
+PROPERTIES
+  Taste::dataView => ("DataView");
+  Taste::dataViewPath => ("data_logger_ut_dv.aadl");
+END interfaceview;
+
+SYSTEM IMPLEMENTATION interfaceview.others
+SUBCOMPONENTS
+  double_producer : SYSTEM interfaceview::IV::double_producer::double_producer.others {
+    Taste::coordinates => "84018 28531 112970 50856";
+  };
+  RigidBodyStateDispatcher : SYSTEM interfaceview::IV::RigidBodyStateDispatcher::RigidBodyStateDispatcher.others {
+    Taste::coordinates => "132575 81294 162247 102416";
+  };
+  rbs_producer : SYSTEM interfaceview::IV::rbs_producer::rbs_producer.others {
+    Taste::coordinates => "84163 81671 113114 104285";
+  };
+  motion2d_producer : SYSTEM interfaceview::IV::motion2d_producer::motion2d_producer.others {
+    Taste::coordinates => "83396 138373 112923 159402";
+  };
+  MotionCommandDispatcher : SYSTEM interfaceview::IV::MotionCommandDispatcher::MotionCommandDispatcher.others {
+    Taste::coordinates => "130681 140719 158480 160507";
+  };
+  double_consumer : SYSTEM interfaceview::IV::double_consumer::double_consumer.others {
+    Taste::coordinates => "185085 27761 213171 48790";
+  };
+  rbs_consumer : SYSTEM interfaceview::IV::rbs_consumer::rbs_consumer.others {
+    Taste::coordinates => "184577 76042 212376 95631";
+  };
+  motion2d_consumer : SYSTEM interfaceview::IV::motion2d_consumer::motion2d_consumer.others {
+    Taste::coordinates => "182262 130254 208764 150275";
+  };
+  motion_command2d_logger : SYSTEM interfaceview::IV::motion_command2d_logger::motion_command2d_logger.others {
+    Taste::coordinates => "182851 158927 207974 182640";
+  };
+  rbs_logger : SYSTEM interfaceview::IV::rbs_logger::rbs_logger.others {
+    Taste::coordinates => "182799 101232 211787 114346";
+  };
+  double_logger : SYSTEM interfaceview::IV::double_logger::double_logger.others {
+    Taste::coordinates => "185118 54851 213334 66698";
+  };
+  DoubleDispatcher : SYSTEM interfaceview::IV::DoubleDispatcher::DoubleDispatcher.others {
+    Taste::coordinates => "132552 28953 167269 50212";
+  };
+CONNECTIONS
+  DoubleDispatcher_PI_dispatch_double_producer_RI_dispatch : SUBPROGRAM ACCESS DoubleDispatcher.PI_dispatch -> double_producer.RI_dispatch {
+    Taste::coordinates => "112970 31859 122761 31859 122761 32818 132552 32818";
+  };
+  RigidBodyStateDispatcher_PI_dispatch_rbs_producer_RI_dispatch : SUBPROGRAM ACCESS RigidBodyStateDispatcher.PI_dispatch -> rbs_producer.RI_dispatch {
+    Taste::coordinates => "113114 84999 122734 84999 122734 89934 132575 89934";
+  };
+  rbs_consumer_PI_sample_RigidBodyStateDispatcher_RI_sample : SUBPROGRAM ACCESS rbs_consumer.PI_sample -> RigidBodyStateDispatcher.RI_sample {
+    Taste::coordinates => "162247 94254 173412 94254 173412 78096 184577 78096";
+  };
+  rbs_logger_PI_sample_RigidBodyStateDispatcher_RI_sample1 : SUBPROGRAM ACCESS rbs_logger.PI_sample -> RigidBodyStateDispatcher.RI_sample1 {
+    Taste::coordinates => "162247 99733 172523 99733 172523 101232 182799 101232";
+  };
+  MotionCommandDispatcher_PI_dispatch_motion_command_motion2d_producer_RI_dispatch_motion_command : SUBPROGRAM ACCESS MotionCommandDispatcher.PI_dispatch_motion_command -> motion2d_producer.RI_dispatch_motion_command {
+    Taste::coordinates => "112923 143365 121802 143365 121802 147919 130681 147919";
+  };
+  motion2d_consumer_PI_sample_MotionCommandDispatcher_RI_sample : SUBPROGRAM ACCESS motion2d_consumer.PI_sample -> MotionCommandDispatcher.RI_sample {
+    Taste::coordinates => "158480 152239 170371 152239 170371 134157 182262 134157";
+  };
+  motion_command2d_logger_PI_sample_MotionCommandDispatcher_RI_sample1 : SUBPROGRAM ACCESS motion_command2d_logger.PI_sample -> MotionCommandDispatcher.RI_sample1 {
+    Taste::coordinates => "158480 156559 170833 156559 170833 158927 182851 158927";
+  };
+  double_consumer_PI_sample_DoubleDispatcher_RI_sample : SUBPROGRAM ACCESS double_consumer.PI_sample -> DoubleDispatcher.RI_sample {
+    Taste::coordinates => "167269 32818 176177 32818 176177 31869 185085 31869";
+  };
+  double_logger_PI_sample_DoubleDispatcher_RI_sample2 : SUBPROGRAM ACCESS double_logger.PI_sample -> DoubleDispatcher.RI_sample2 {
+    Taste::coordinates => "167269 44413 176193 44413 176193 54851 185118 54851";
+  };
+END interfaceview.others;
+
+PROPERTIES
+  Taste::dataView => ("DataView");
+  Taste::dataViewPath => ("data_logger_ut_dv.aadl");
+  Taste::coordinates => "0 0 297000 210000";
+  Taste::version => "2.0";
+END interfaceview::IV;
+
