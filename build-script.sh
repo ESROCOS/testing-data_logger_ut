@@ -77,12 +77,6 @@ cd "$SKELS" && rm -f rbs_consumer.zip && zip rbs_consumer rbs_consumer/* && cd $
 
 cd "$SKELS" && rm -f motion2d_consumer.zip && zip motion2d_consumer motion2d_consumer/* && cd $OLDPWD
 
-cd "$SKELS" && rm -f rbs_logger.zip && zip rbs_logger rbs_logger/* && cd $OLDPWD
-
-cd "$SKELS" && rm -f double_logger.zip && zip double_logger double_logger/* && cd $OLDPWD
-
-cd "$SKELS" && rm -f motion_command2d_logger.zip && zip motion_command2d_logger motion_command2d_logger/* && cd $OLDPWD
-
 cd "$SKELS" && rm -f signal_handler.zip && zip signal_handler signal_handler/* && cd $OLDPWD
 
 [ ! -z "$CLEANUP" ] && rm -rf binary*
@@ -134,10 +128,10 @@ cd "$CWD" && assert-builder-ocarina.py \
 	--subCPP rbs_consumer:"$SKELS"/rbs_consumer.zip \
 	--subCPP motion2d_consumer:"$SKELS"/motion2d_consumer.zip \
 	--subCPP doubledispatcher:/home/taste/esrocos_workspace/install/share/taste_components/dispatchers/doubledispatcher.zip \
-	--subCPP rbs_logger:"$SKELS"/rbs_logger.zip \
-	--subCPP double_logger:"$SKELS"/double_logger.zip \
-	--subCPP motion_command2d_logger:"$SKELS"/motion_command2d_logger.zip \
 	--subCPP signal_handler:"$SKELS"/signal_handler.zip \
+	--subCPP motion_command2d_logger:/home/taste/esrocos_workspace/install/share/taste_components/data_loggers/motion_command2d_logger.zip \
+	--subCPP rbs_logger:/home/taste/esrocos_workspace/install/share/taste_components/data_loggers/rbs_logger.zip \
+	--subCPP double_logger:/home/taste/esrocos_workspace/install/share/taste_components/data_loggers/double_logger.zip \
 	$ORCHESTRATOR_OPTIONS
 
 if [ -f user_init_last.sh ]

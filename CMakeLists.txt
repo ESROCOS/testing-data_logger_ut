@@ -31,7 +31,7 @@ esrocos_init()
 ########### FOR INTEGRATION PROJECTS ##############
 
 #uncomment if you want to add dependencies for the build process (only required in integration projects)
-esrocos_add_dependency(PARTITION ut_log_record_taste_api
+esrocos_add_dependency(PARTITION ut_log_record
                        MODULES   data_logger_components data_logger)
 
 ########### FOR COMPONENT PROJECTS ################

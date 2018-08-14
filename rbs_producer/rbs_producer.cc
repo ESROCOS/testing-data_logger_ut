@@ -18,6 +18,7 @@ void rbs_producer_PI_trigger()
 {
     if(i_sample < N_SAMPLES){
     	asn1SccBase_samples_RigidBodyState val;
+        asn1SccBase_samples_RigidBodyState_Initialize(&val);
     	val.position.data.arr[0] = cos(STEP * i_sample);
     	val.position.data.arr[1] = sin(STEP * i_sample);
     	val.position.data.arr[2] = (i_sample/N_SAMPLES);

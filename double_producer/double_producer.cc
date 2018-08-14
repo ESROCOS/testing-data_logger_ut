@@ -2,7 +2,7 @@
 #include <math.h>
 #include <iostream>
 
-#define N_SAMPLES 10000
+#define N_SAMPLES 4000
 #define TARGET 2*M_PI
 #define STEP TARGET/N_SAMPLES
 double i_sample;
