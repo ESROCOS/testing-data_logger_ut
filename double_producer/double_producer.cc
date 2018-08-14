@@ -1,19 +1,22 @@
-/* User code: This file will not be overwritten by TASTE. */
-
 #include "double_producer.h"
-#include <cmath>
+#include <math.h>
+#include <iostream>
 
-int n_cycles = 50000;
-int i_cycle = 0;
+#define N_SAMPLES 10000
+#define TARGET 2*M_PI
+#define STEP TARGET/N_SAMPLES
+double i_sample;
 
 void double_producer_startup()
 {
-    i_cycle = 0;
+    i_sample = 0;
 }
 
 void double_producer_PI_trigger()
 {
-    double val = std::sin((double)i_cycle / (double)n_cycles);
-    double_producer_RI_dispatch(&val);
+	if(i_sample < N_SAMPLES){
+    	double val = sin(STEP * i_sample++);
+    	std::cout << "double_producer: " << i_sample << "/" << N_SAMPLES << std::endl;
+    	double_producer_RI_dispatch(&val);
+    }
 }
-

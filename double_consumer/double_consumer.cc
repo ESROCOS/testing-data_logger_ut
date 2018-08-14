@@ -13,8 +13,6 @@ void double_consumer_startup()
 
 void double_consumer_PI_sample(const asn1SccT_Double *IN_sample)
 {
-    /* Write your code here! */
-    std::cout << *IN_sample << std::endl;
     csv << *IN_sample << "\n";
 }
 

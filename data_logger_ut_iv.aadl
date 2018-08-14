@@ -139,8 +139,6 @@ WITH Taste;
 WITH DataView;
 WITH TASTE_IV_Properties;
 SUBPROGRAM PI_trigger
-PROPERTIES
-  Taste::Associated_Queue_Size => 1;
 END PI_trigger;
 
 SUBPROGRAM IMPLEMENTATION PI_trigger.others
@@ -163,7 +161,7 @@ FEATURES
   PI_trigger : PROVIDES SUBPROGRAM ACCESS interfaceview::IV::rbs_producer::PI_trigger.others {
     Taste::coordinates => "84163 81671";
     Taste::RCMoperationKind => cyclic;
-    Taste::RCMperiod => 100 ms;
+    Taste::RCMperiod => 50 ms;
     Taste::Deadline => 0 ms;
     Taste::InterfaceName => "trigger";
   };
@@ -731,6 +729,16 @@ WITH interfaceview::IV::motion2d_consumer;
 WITH Taste;
 WITH DataView;
 WITH TASTE_IV_Properties;
+SUBPROGRAM PI_trigger
+PROPERTIES
+  Taste::Associated_Queue_Size => 1;
+END PI_trigger;
+
+SUBPROGRAM IMPLEMENTATION PI_trigger.others
+PROPERTIES
+  Compute_Execution_Time => 0 ms .. 0 ms;
+END PI_trigger.others;
+
 SUBPROGRAM RI_RI1
 END RI_RI1;
 
@@ -767,16 +775,15 @@ END RI_RI6;
 SUBPROGRAM IMPLEMENTATION RI_RI6.others
 END RI_RI6.others;
 
-SUBPROGRAM PI_trigger
-END PI_trigger;
-
-SUBPROGRAM IMPLEMENTATION PI_trigger.others
-PROPERTIES
-  Compute_Execution_Time => 0 ms .. 0 ms;
-END PI_trigger.others;
-
 SYSTEM signal_handler
 FEATURES
+  PI_trigger : PROVIDES SUBPROGRAM ACCESS interfaceview::IV::signal_handler::PI_trigger.others {
+    Taste::coordinates => "292644 98767";
+    Taste::RCMoperationKind => cyclic;
+    Taste::RCMperiod => 100 ms;
+    Taste::Deadline => 0 ms;
+    Taste::InterfaceName => "trigger";
+  };
   RI_RI1 : REQUIRES SUBPROGRAM ACCESS interfaceview::IV::double_consumer::PI_close.others {
     Taste::coordinates => "276432 68599";
     Taste::RCMoperationKind => any;
@@ -812,12 +819,6 @@ FEATURES
     Taste::RCMoperationKind => any;
     Taste::InterfaceName => "RI6";
     Taste::labelInheritance => "false";
-  };
-  PI_trigger : PROVIDES SUBPROGRAM ACCESS interfaceview::IV::signal_handler::PI_trigger.others {
-    Taste::coordinates => "292644 98767";
-    Taste::RCMoperationKind => cyclic;
-    Taste::RCMperiod => 100 ms;
-    Taste::InterfaceName => "trigger";
   };
 PROPERTIES
   Source_Language => (CPP);
