@@ -1,0 +1,8 @@
+data_logger-analyze ./motion_command2d_logger.cc.log
+echo
+echo "============="
+data_logger-analyze ./rbs_logger.cc.log
+echo
+echo "============="
+data_logger-analyze ./double_logger.cc.log
+
