@@ -13,6 +13,8 @@ WITH Taste;
 WITH DataView;
 WITH TASTE_IV_Properties;
 SUBPROGRAM PI_trigger
+PROPERTIES
+  Taste::Associated_Queue_Size => 1;
 END PI_trigger;
 
 SUBPROGRAM IMPLEMENTATION PI_trigger.others
@@ -69,7 +71,7 @@ FEATURES
     Taste::encoding => NATIVE;
   };
 PROPERTIES
-  Taste::Associated_Queue_Size => 1;
+  Taste::Associated_Queue_Size => 50;
 END PI_dispatch;
 
 SUBPROGRAM IMPLEMENTATION PI_dispatch.others
@@ -247,7 +249,7 @@ FEATURES
     Taste::encoding => NATIVE;
   };
 PROPERTIES
-  Taste::Associated_Queue_Size => 1;
+  Taste::Associated_Queue_Size => 50;
 END PI_dispatch_motion_command;
 
 SUBPROGRAM IMPLEMENTATION PI_dispatch_motion_command.others
@@ -319,7 +321,7 @@ FEATURES
     Taste::encoding => NATIVE;
   };
 PROPERTIES
-  Taste::Associated_Queue_Size => 1;
+  Taste::Associated_Queue_Size => 50;
 END PI_sample;
 
 SUBPROGRAM IMPLEMENTATION PI_sample.others
@@ -375,7 +377,7 @@ FEATURES
     Taste::encoding => NATIVE;
   };
 PROPERTIES
-  Taste::Associated_Queue_Size => 1;
+  Taste::Associated_Queue_Size => 50;
 END PI_sample;
 
 SUBPROGRAM IMPLEMENTATION PI_sample.others
@@ -431,7 +433,7 @@ FEATURES
     Taste::encoding => NATIVE;
   };
 PROPERTIES
-  Taste::Associated_Queue_Size => 1;
+  Taste::Associated_Queue_Size => 50;
 END PI_sample;
 
 SUBPROGRAM IMPLEMENTATION PI_sample.others
@@ -489,7 +491,7 @@ FEATURES
     Taste::encoding => NATIVE;
   };
 PROPERTIES
-  Taste::Associated_Queue_Size => 1;
+  Taste::Associated_Queue_Size => 50;
 END PI_dispatch;
 
 SUBPROGRAM IMPLEMENTATION PI_dispatch.others
@@ -674,7 +676,7 @@ FEATURES
     Taste::encoding => NATIVE;
   };
 PROPERTIES
-  Taste::Associated_Queue_Size => 1;
+  Taste::Associated_Queue_Size => 50;
 END PI_sample;
 
 SUBPROGRAM IMPLEMENTATION PI_sample.others
@@ -731,7 +733,7 @@ FEATURES
     Taste::encoding => NATIVE;
   };
 PROPERTIES
-  Taste::Associated_Queue_Size => 1;
+  Taste::Associated_Queue_Size => 50;
 END PI_sample;
 
 SUBPROGRAM IMPLEMENTATION PI_sample.others
@@ -788,7 +790,7 @@ FEATURES
     Taste::encoding => NATIVE;
   };
 PROPERTIES
-  Taste::Associated_Queue_Size => 1;
+  Taste::Associated_Queue_Size => 50;
 END PI_sample;
 
 SUBPROGRAM IMPLEMENTATION PI_sample.others

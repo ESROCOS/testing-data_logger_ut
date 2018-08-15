@@ -6,7 +6,7 @@
 #define N_SAMPLES 1000
 #define TARGET 2*M_PI
 #define STEP TARGET/N_SAMPLES
-double i_sample;
+int i_sample;
 
 void motion2d_producer_startup()
 {
@@ -20,7 +20,9 @@ void motion2d_producer_PI_trigger()
     	val.translation = sin(STEP * i_sample);
     	val.rotation = 0.5+sin(STEP * i_sample);
     	val.heading.rad = 1+sin(STEP * i_sample++);
-    	std::cout << "motion2d_producer: " << i_sample << "/" << N_SAMPLES << std::endl;
+    	if((i_sample % 100) == 0){
+    		std::cout << "motion2d_producer: " << i_sample << "/" << N_SAMPLES << std::endl;
+    	}
     	motion2d_producer_RI_dispatch_motion_command(&val);
     }
 }

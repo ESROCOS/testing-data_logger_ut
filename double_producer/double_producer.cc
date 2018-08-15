@@ -5,7 +5,7 @@
 #define N_SAMPLES 4000
 #define TARGET 2*M_PI
 #define STEP TARGET/N_SAMPLES
-double i_sample;
+int i_sample;
 
 void double_producer_startup()
 {
@@ -16,7 +16,9 @@ void double_producer_PI_trigger()
 {
 	if(i_sample < N_SAMPLES){
     	double val = sin(STEP * i_sample++);
-    	std::cout << "double_producer: " << i_sample << "/" << N_SAMPLES << std::endl;
+    	if((i_sample % 100) == 0){
+    		std::cout << "double_producer: " << i_sample << "/" << N_SAMPLES << std::endl;
+    	}
     	double_producer_RI_dispatch(&val);
     }
 }
