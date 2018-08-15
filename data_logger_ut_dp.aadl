@@ -86,11 +86,11 @@ SUBCOMPONENTS
     Taste::FunctionName => "signal_handler";
   };
   ut_log_record : PROCESS deploymentview::DV::Node1::ut_log_record.others {
-    Taste::coordinates => "108275 94856 159343 129015";
+    Taste::coordinates => "98213 85118 149281 128862";
     Deployment::Port_Number => 0;
   };
   x86_linux : PROCESSOR ocarina_processors_x86::x86.linux {
-    Taste::coordinates => "101891 85096 165727 133895";
+    Taste::coordinates => "96698 77630 154667 131297";
   };
 PROPERTIES
   Taste::APLC_Binding => (reference (ut_log_record)) APPLIES TO IV_double_producer;
@@ -115,7 +115,7 @@ END deploymentview;
 SYSTEM IMPLEMENTATION deploymentview.others
 SUBCOMPONENTS
   Node1 : SYSTEM Node1.others {
-    Taste::coordinates => "93911 71153 173706 140866";
+    Taste::coordinates => "93911 71153 157102 132433";
   };
   interfaceview : SYSTEM interfaceview::IV::interfaceview.others;
 END deploymentview.others;
